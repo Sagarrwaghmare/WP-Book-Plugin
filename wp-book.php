@@ -36,6 +36,51 @@
 
 
 
+// 1
+function crunchify_deals_custom_post_type() {
+	$labels = array(
+		'name'                => __( 'Books' ),
+		'singular_name'       => __( 'Book'),
+		'menu_name'           => __( 'Books'),
+		'parent_item_colon'   => __( 'Parent Book'),
+		'all_items'           => __( 'All Books'),
+		'view_item'           => __( 'View Book'),
+		'add_new_item'        => __( 'Add New Book'),
+		'add_new'             => __( 'Add New'),
+		'edit_item'           => __( 'Edit Book'),
+		'update_item'         => __( 'Update Book'),
+		'search_items'        => __( 'Search Book'),
+		'not_found'           => __( 'Not Found'),
+		'not_found_in_trash'  => __( 'Not found in Trash')
+	);
+	$args = array(
+		'label'               => __( 'books'),
+		'description'         => __( 'Best Crunchify Deals'),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields'),
+		'public'              => true,
+		'hierarchical'        => false,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'has_archive'         => true,
+		'can_export'          => true,
+		'exclude_from_search' => false,
+	        'yarpp_support'       => true,
+		'taxonomies' 	      => array('post_tag'),
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+		'show_in_rest'=>false
+);
+	register_post_type( 'books', $args );
+}
+add_action( 'init', 'crunchify_deals_custom_post_type', 0 );
+
+
+
+
+
 
 
 
