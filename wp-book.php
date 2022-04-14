@@ -119,6 +119,60 @@ function crunchify_create_deals_custom_taxonomy() {
 
 
 
+// 3
+
+add_action( 'init', 'crunchify_create_deals_custom_non_taxonomy', 0 );
+ 
+//create a custom taxonomy name it "type" for your posts
+function crunchify_create_deals_custom_non_taxonomy() {
+ 
+  $labels = array(
+    'name' => _x( 'Book Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Book Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Types' ),
+    'all_items' => __( 'All Types' ),
+    'parent_item' => __( 'Parent Type' ),
+    'parent_item_colon' => __( 'Parent Type:' ),
+    'edit_item' => __( 'Edit Type' ), 
+    'update_item' => __( 'Update Type' ),
+    'add_new_item' => __( 'Add New Type' ),
+    'new_item_name' => __( 'New Type Name' ),
+    'menu_name' => __( 'Book Tag' ),
+  ); 	
+ 
+  register_taxonomy('Book Tag',array('books'), array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'book-tag' ),
+  ));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
